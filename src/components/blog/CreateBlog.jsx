@@ -4,9 +4,10 @@ import Field from '../common/Field'
 import useBlogMutation from '../../hooks/useBlogMutation'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
+import useImageSrc from '../../hooks/useImageSrc'
 
 const CreateBlog = () => {
-    const [imageSrc,setImageSrc] = useState(null)
+    const {imageSrc,handleFileChange}= useImageSrc(null)
 
     const { onChange, formState: { errors }, register, handleSubmit } = useForm()
     const { createBlogMutation } = useBlogMutation()
@@ -18,19 +19,8 @@ const CreateBlog = () => {
   
     }
 
-    //handle image for selected image
-    const handleFileChange = (event) =>  {
-        const file = event.target.files[0]
+   
 
-        if(file){
-            const reader = new FileReader()
-            reader.onload = () => {
-                setImageSrc(reader.result)
-            }
-
-            reader.readAsDataURL(file)
-        }
-    }
 
     //after successfully post redirect home page and success message
     if(createBlogMutation.isSuccess){

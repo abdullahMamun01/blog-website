@@ -6,13 +6,14 @@ import Field from '../common/Field';
 import useBlogMutation from '../../hooks/useBlogMutation';
 import { useQueryClient } from '@tanstack/react-query';
 import { toast } from 'react-toastify';
+import useImageSrc from '../../hooks/useImageSrc';
 
 
 const EditBlog = () => {
     const {state,dispatch} = useBlogContext()
 
     const thumbnail = `${import.meta.env.VITE_SERVER_BASE_URL}/uploads/blog/${state.editModal.selectedBlog.thumbnail}`
-    const [imageSrc, setImageSrc] = useState(thumbnail || null)
+    const {imageSrc ,handleFileChange} = useImageSrc(thumbnail || null)
  
     const { onChange, formState: { errors }, register,watch, handleSubmit } = useForm({
         defaultValues : {
@@ -53,19 +54,7 @@ const EditBlog = () => {
         return
     }
 
-    const handleFileChange = (event) => {
-        const file = event.target.files[0]
-
-        if (file) {
-            const reader = new FileReader()
-            reader.onload = () => {
-             
-                setImageSrc(reader.result)
-            }
-
-            reader.readAsDataURL(file)
-        }
-    }
+    
 
     return (
 
