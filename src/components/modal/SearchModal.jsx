@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
-import usePortalContext from '../../hooks/usePortalContext'
+
 import CloseIcon from '../../assets/icons/close.svg'
 import SearchList from '../SearchList'
 import { api } from '../../api/api'
 import useDebounce from '../../hooks/useDebounce'
 import useQueryData from '../../hooks/useQueryData'
 import useAxios from '../../hooks/useAxios'
+import { usePortalContext } from '../../hooks/usePortalContext'
 
 const SearchModal = () => {
 

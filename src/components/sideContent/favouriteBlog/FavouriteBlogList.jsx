@@ -18,6 +18,7 @@ const FavouriteBlogList = () => {
 
   }
   const { data, isLoading,isError,error } = useQueryData(['favourite-blog'], fetchFavouriteBlog())
+  console.log(data)
   if (isLoading) {
     return <Loading />
   }

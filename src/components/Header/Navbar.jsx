@@ -5,7 +5,8 @@ import Search from '../../assets/icons/search.svg'
 import useAuthContext from '../../hooks/useAuthContext'
 import Avatar from '../avatar/Avatar'
 import Logout from '../auth/Logout'
-import usePortalContext from '../../hooks/usePortalContext'
+import { usePortalContext } from '../../hooks/usePortalContext'
+
 
 const Navbar = () => {
     const { auth } = useAuthContext()

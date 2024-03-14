@@ -1,5 +1,6 @@
-import usePortalContext from "../../hooks/usePortalContext"
-import { PortalProvider } from "../../provider/PortalProvider"
+
+import { usePortalContext } from "../../hooks/usePortalContext"
+
 import SearchPortal from "../modal/portal-modal/SearchPortal"
 import Navbar from "./Navbar"
 
