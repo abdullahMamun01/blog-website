@@ -69,7 +69,7 @@ const CreateBlog = () => {
 
                         </div>
                     </label>
-                    <span classNameName='text-red-600 my-2'>{errors?.thumbnail?.message}</span>
+                    <span className='text-red-600 my-2'>{errors?.thumbnail?.message}</span>
                 </div>
                 <div className="mb-6">
                     <Field error={errors.title}>

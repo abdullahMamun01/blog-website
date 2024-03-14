@@ -8,7 +8,8 @@ const SideContent = () => {
   return (
     <div>
       <MostPopularBlogList/>
-      {auth?.accessToken && <FavouriteBlogList/>}
+      <br />
+      {auth.accessToken && <FavouriteBlogList/>}
     </div>
   )
 }
