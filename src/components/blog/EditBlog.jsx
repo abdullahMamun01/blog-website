@@ -69,7 +69,7 @@ const EditBlog = () => {
 
     return (
 
-        <section class="fixed left-0 top-0  w-full flex justify-center items-center  bg-slate-800/50 backdrop-blur-sm z-50">
+        <section className="fixed left-0 top-0  w-full flex justify-center items-center  bg-slate-800/50 backdrop-blur-sm z-50">
             <div
                 className=" w-9/12 mx-auto relative  bg-slate-900 p-4 border border-slate-600/50 rounded-lg shadow-lg shadow-slate-400/10"
             >

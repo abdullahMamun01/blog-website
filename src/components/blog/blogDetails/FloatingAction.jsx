@@ -34,8 +34,8 @@ const FloatingAction = ({blogId}) => {
   }
 
   return (
-    <div class="floating-action">
-      <ul class="floating-action-menus">
+    <div className="floating-action">
+      <ul className="floating-action-menus">
         <li className=''>
           <button onClick={handleToggleLike} className=''>
                 <LikeIcon isLiked={findMyLikes}/>

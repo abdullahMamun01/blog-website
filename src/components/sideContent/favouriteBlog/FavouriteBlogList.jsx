@@ -10,14 +10,14 @@ import FavouriteBlogCard from "./FavouriteBlogCard"
 
 const FavouriteBlogList = () => {
   const { axiosPrivate } = useAxios()
+
   //fetch favourite blog fn
   const fetchFavouriteBlog = async () => {
-
     const response = await axiosPrivate.get('/blogs/favourites')
     return response.data
 
   }
-  const { data, isLoading,isError,error } = useQueryData(['favourite-blog'], fetchFavouriteBlog())
+  const { data, isLoading,isError,error } = useQueryData(['favourite'], fetchFavouriteBlog())
   console.log(data)
   if (isLoading) {
     return <Loading />

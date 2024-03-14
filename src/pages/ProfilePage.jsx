@@ -1,13 +1,12 @@
 import React from 'react';
 import ProfileImage from '../components/Profile/ProfileImage';
 import ProfileInfo from '../components/Profile/ProfileInfo';
-import YourBlog from '../components/Profile/YourBlog';
 import Bio from '../components/Profile/Bio';
 import useAxios from '../hooks/useAxios';
 import useQueryData from '../hooks/useQueryData';
 import useAuthContext from '../hooks/useAuthContext';
 import Loading from '../components/loading/Loading';
-import { sortedBlogPost } from '../utils/sortedBlogPost';
+
 import { useParams } from 'react-router-dom';
 import BlogCard from '../components/blog/BlogCard';
 import UpdateProfileModal from '../components/modal/UpdateProfileModal';
@@ -40,13 +39,13 @@ const ProfilePage = () => {
 
   const {state} = useBlogContext()
   const {updateProfileModal} = state
-  console.log(profileUserId)
+
   return (
-    <main class="mx-auto max-w-[1020px] py-8">
+    <main className="mx-auto max-w-[1020px] py-8">
 
       {updateProfileModal.isOpen && <UpdateProfileModal/>}
 
-      <div class="">
+      <div className="">
         <div className="flex flex-col items-center py-8 text-center ">
           <ProfileImage  firstName={data.firstName} avatar={data.avatar} isMe={isMe}/>
 
