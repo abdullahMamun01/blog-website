@@ -4,9 +4,6 @@ import { fetchData } from "../../utils/fetchData"
 import BlogCard from "./BlogCard"
 
 import InfiniteScroll from "../feature/InfiniteScroll"
-import useAuthContext from "../../hooks/useAuthContext"
-import EditBlog from "./EditBlog"
-import useBlogContext from "../../hooks/useBlogContext"
 import Loading from "../loading/Loading"
 
 
@@ -24,11 +21,11 @@ const BlogList = () => {
         return <div className="text-red-600 my-5">{error.message}</div>
     }
     const flatBlogs = data?.pages?.flatMap(blog => blog.blogs)
-    const {state} = useBlogContext()
+
     console.log(hasNextPage)
     return (
         <div>
-            {state.editModal.isOpen && <EditBlog/>}
+            
             <InfiniteScroll
                 hasMore={hasNextPage}
                 fetchNext={fetchNextPage}

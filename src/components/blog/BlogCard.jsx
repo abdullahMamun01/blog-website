@@ -7,6 +7,7 @@ import useModal from "../../hooks/useModal";
 import Portal from "../Portal";
 import ConfirmDeleteModal from "../modal/ConfirmDeleteModal";
 import ProfileLink from "../common/ProfileLink";
+import useBlogContext from "../../hooks/useBlogContext";
 
 // 
 const BlogCard = ({ blog }) => {
@@ -16,9 +17,11 @@ const BlogCard = ({ blog }) => {
 
   const { auth } = useAuthContext()
   const isShowing = author?.id === auth?.user?.id
+  const {state} = useBlogContext()
+  
   return (
     <div className="blog-card relative overflow-hidden">
-
+      {state.editModal.isOpen && <EditBlog/>}
       {isShowing && <ActionMenuModal id={id} blog={blog} />}
 
       <img
