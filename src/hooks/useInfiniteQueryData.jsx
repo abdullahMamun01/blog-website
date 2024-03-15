@@ -6,8 +6,12 @@ const useInfiniteQueryData = (key, fetchFunction) => {
         queryKey : key,
         queryFn : fetchFunction,
         initialPageParam : 1,
-        getNextPageParam : (lastPage) => {
-            return  lastPage.page + 1 
+        getNextPageParam : (lastPage,allPage) => {
+           if(lastPage.blogs.length === 0){
+
+            return null
+           }
+            return   lastPage.page + 1 
         }
     })
 }

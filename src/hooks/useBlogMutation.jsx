@@ -40,7 +40,6 @@ const useBlogMutation = () => {
 
     const deleteBlogMutation = useMutation ({
         mutationFn : async (blogId) => {
-         
             const response = await axiosPrivate.delete(`/blogs/${blogId}`)
             return response.data
         }

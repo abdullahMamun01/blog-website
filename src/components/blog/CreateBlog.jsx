@@ -19,9 +19,6 @@ const CreateBlog = () => {
   
     }
 
-   
-
-
     //after successfully post redirect home page and success message
     if(createBlogMutation.isSuccess){
         toast.success("Blog create successfully", {
