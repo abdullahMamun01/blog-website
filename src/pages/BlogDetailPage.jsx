@@ -31,7 +31,7 @@ const BlogDetailPage = () => {
   
     return (
         <>
-            <h1 className="font-bold text-3xl md:text-5xl">{title}</h1>
+            <h1 className="font-bold text-3xl md:text-5xl text-center">{title}</h1>
             <div className="flex justify-center items-center my-4 gap-4">
                 <ProfileLink author={author}>
                     <BlogAuthor author={author} />

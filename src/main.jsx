@@ -15,13 +15,13 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
-          <AuthProvider>
-            <PortalProvider>
-        <AppProvider>
+        <AuthProvider>
+          <PortalProvider>
+            <AppProvider>
               <App />
-        </AppProvider>
-            </PortalProvider>
-          </AuthProvider>
+            </AppProvider>
+          </PortalProvider>
+        </AuthProvider>
       </BrowserRouter>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>

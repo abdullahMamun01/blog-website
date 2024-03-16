@@ -10,6 +10,10 @@ const MostPopularBlogList = () => {
   if (isLoading) {
     return <Loading />
   }
+
+  if(isError){
+    return <div className="text-red-600 my-5">{error.message}</div>
+  }
   return (
     <div className="sidebar-card">
       <h3 className="text-slate-300 text-xl lg:text-2xl font-semibold">
