@@ -6,16 +6,23 @@ import useAuthContext from '../../hooks/useAuthContext'
 import Avatar from '../avatar/Avatar'
 import Logout from '../auth/Logout'
 import { usePortalContext } from '../../hooks/usePortalContext'
+import AvatarDropdown from '../modal/AvatarDropdown'
+import { useState } from 'react'
 
 
 const Navbar = () => {
     const { auth } = useAuthContext()
     const { user } = auth
     const { setIsPortalOpen } = usePortalContext()
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+    const toggleAvatarDropdown = () =>{
+        setIsDropdownOpen(!isDropdownOpen)
+    }
  
     return (
         <div>
-            <nav className="container ">
+            <nav className="container relative">
 
                 <div>
                     <Link to="/">
@@ -50,8 +57,7 @@ const Navbar = () => {
                         </li>
                         <li>
                             {
-                                user ? <Logout />
-                                    :
+                                !user &&
                                     <>
                                         <Link
                                             to="/login"
@@ -69,12 +75,12 @@ const Navbar = () => {
 
                             </div>
 
-                            <Link to="/me">
+                            <button className='' onClick={toggleAvatarDropdown}>
                                 <span className="text-white ml-2">
                                     {user?.firstName}  {user?.lastName}
                                 </span>
-                            </Link>
-
+                            </button>
+                           {isDropdownOpen  &&  <AvatarDropdown/> }
                         </li>
                     </ul>
                 </div>

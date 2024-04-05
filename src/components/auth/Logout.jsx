@@ -10,7 +10,7 @@ const Logout = () => {
         navigate('/login')
     }
   return (
-    <button onClick={handleLogOut}>Logout</button>
+    <button className="action-menu-item hover:text-red-500" onClick={handleLogOut}>Logout</button>
   )
 }
 

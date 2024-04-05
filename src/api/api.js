@@ -1,12 +1,12 @@
 import axios from "axios";
 
 export const api = axios.create({
-    baseURL: 'http://localhost:3000'
+    baseURL: 'https://blogify-1-fy0m.onrender.com'
 })
 
 
 export const axiosPrivate = axios.create({
-    baseURL: 'http://localhost:3000' ,
+    baseURL: 'https://blogify-1-fy0m.onrender.com' ,
     headers: { 'Content-Type': 'application/json' },
     withCredentials: true
 });
