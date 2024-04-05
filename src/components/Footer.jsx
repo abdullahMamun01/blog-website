@@ -1,11 +1,12 @@
+import Logo from "./Header/Logo";
 
-import Logo from '../assets/logo.svg'
+
 const Footer = () => {
     return (
         <footer className="my-6 md:my-8 bg-[#030317] ">
             <div className="container mx-auto flex items-center justify-between">
                 <a href="/">
-                    <img className="w-28" src={Logo} alt="lws" />
+                    <Logo />
                 </a>
                 <ul className="flex items-center space-x-5">
                     <li className="text-center">

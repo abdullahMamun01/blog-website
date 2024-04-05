@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const SearchList = ({ id, title, thumbnail, content }) => {
     return (
-        <div className="my-4 divide-y-2 divide-slate-500/30 max-h-[440px] overflow-y-scroll overscroll-contain">
+        <div className="my-4 divide-y-2 divide-slate-500/30 max-h-[440px] overflow-y-scroll overscroll-contain ">
             <Link to={`/blog/${id}`}>
 
 

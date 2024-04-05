@@ -37,17 +37,17 @@ const ProfilePage = () => {
 
   const isMe = auth?.user?.id === data?.id
 
-  const {state} = useBlogContext()
-  const {updateProfileModal} = state
+  const { state } = useBlogContext()
+  const { updateProfileModal } = state
 
   return (
     <main className="mx-auto max-w-[1020px] py-8">
 
-      {updateProfileModal.isOpen && <UpdateProfileModal/>}
+      {updateProfileModal.isOpen && <UpdateProfileModal />}
 
       <div className="">
         <div className="flex flex-col items-center py-8 text-center ">
-          <ProfileImage  firstName={data.firstName} avatar={data.avatar} isMe={isMe}/>
+          <ProfileImage firstName={data.firstName} avatar={data.avatar} isMe={isMe} />
 
           <ProfileInfo
             firstName={data?.firstName}
@@ -58,10 +58,12 @@ const ProfilePage = () => {
           <Bio bio={data?.bio} isMe={isMe} />
           <h4 className="mt-6 text-xl lg:mt-8 lg:text-2xl my-4">Your Blogs</h4>
 
-          {latestPost.length === 0 ? <span>Blog is empty</span>
-            :
-            latestPost?.map(blog => <BlogCard key={blog.id} blog={blog} />)
-          }
+          <div className='w-full'>
+            {latestPost.length === 0 ? <span>Blog is empty</span>
+              :
+              latestPost?.map(blog => <BlogCard key={blog.id} blog={blog} />)
+            }
+          </div>
 
         </div>
       </div>

@@ -15,7 +15,7 @@ const EditBlog = () => {
     const thumbnail = `${import.meta.env.VITE_SERVER_BASE_URL}/uploads/blog/${state.editModal.selectedBlog.thumbnail}`
     const {imageSrc ,handleFileChange} = useImageSrc(thumbnail || null)
  
-    const { onChange, formState: { errors }, register,watch, handleSubmit } = useForm({
+    const {  formState: { errors }, register, handleSubmit } = useForm({
         defaultValues : {
                 title: state.editModal.selectedBlog.title || '',
                 content:  state.editModal.selectedBlog.content || '',

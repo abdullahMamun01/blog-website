@@ -9,7 +9,7 @@ const SideContent = () => {
     <div>
       <MostPopularBlogList/>
       <br />
-      {auth.accessToken && <FavouriteBlogList/>}
+      {auth?.accessToken && <FavouriteBlogList/>}
     </div>
   )
 }

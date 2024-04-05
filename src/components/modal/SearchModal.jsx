@@ -21,20 +21,25 @@ const SearchModal = () => {
     const { setIsPortalOpen } = usePortalContext()
     const [debounceValue,debounceCB] = useDebounce(search ,500)
   
-    const { data,isError,error } = useQueryData(['search'], debounceValue ? fetchSearch(debounceValue) : {data: []})
+    const { data,isError,error } = useQueryData([debounceValue], debounceValue ? fetchSearch(debounceValue) : {data: []})
 
 
     const handleSearch = (e) => {
+        
         const value = e.target.value
         debounceCB(value)
 
     }
+    
 
+    if(isError){
+        return <div className='text-red-600'>{error.message}</div>
+    }
 
     return (
         <section className="absolute left-0 top-0 w-full h-full grid place-items-center bg-slate-800/50 backdrop-blur-sm z-50">
             <div
-                className="relative w-6/12 mx-auto bg-slate-900 p-4 border border-slate-600/50 rounded-lg shadow-lg shadow-slate-400/10"
+                className="relative md:w-6/12  mx-auto bg-slate-900 p-4 border border-slate-600/50 rounded-lg shadow-lg shadow-slate-400/10"
             >
                 <div>
                     <h3 className="font-bold text-xl pl-2 text-slate-400 my-2">Search for Your Desire Blogs</h3>
@@ -50,6 +55,13 @@ const SearchModal = () => {
                 {/* search result */}
                 <div className="">
                     <h3 className="text-slate-400 font-bold mt-6">Search Results</h3>
+                    {
+                        debounceValue && 
+                        <div className='mt-3'> search keyword 
+                            <span className='text-green-600 font-bold mx-2'>{debounceValue}</span>
+                            & total result <span className='text-green-600 font-bold mx-1'> ({data?.data.length})</span>
+                         </div>
+                    }
                     {data?.data.map(blog => (<SearchList key={blog.id} {...blog}/>))}
                 </div>
 

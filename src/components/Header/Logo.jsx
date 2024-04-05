@@ -2,7 +2,9 @@ import LwsLogo from '../../assets/logo.svg'
 
 const Logo = () => {
   return (
-    <img className="w-32" src={LwsLogo} alt="lws" />
+    <div class="w-32 bg-gradient-to-r from-green-500 to-white text-transparent bg-clip-text">
+      <h1 class="text-2xl font-bold">blogify</h1>
+    </div>
   )
 }
 

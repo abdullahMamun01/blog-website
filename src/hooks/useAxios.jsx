@@ -11,6 +11,7 @@ const useAxios = () => {
     const requestIntercept = axiosPrivate.interceptors.request.use(
       (config) => {
         const accessToken = auth?.accessToken;
+        console.log({accessToken})
         if (accessToken) {
           config.headers.Authorization = `Bearer ${accessToken}`;
         }
@@ -26,7 +27,7 @@ const useAxios = () => {
       async (error) => {
         const originalRequest = error.config;
    
-        if (error.response.status === 403 && !originalRequest._retry) {
+        if (error.response.status === 500 && !originalRequest._retry) {
           originalRequest._retry = true;
     
           try {
