@@ -27,4 +27,4 @@ Blogify is a personal blogging platform developed using React.js for the fronten
 1. Clone the repository:
 
 ```bash
-git clone [https://github.com/abdullahMamun01/blogify-client]
+git clone https://github.com/abdullahMamun01/blogify-client
