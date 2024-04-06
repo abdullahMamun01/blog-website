@@ -10,7 +10,6 @@ const HomePage = () => {
                 <BlogList />
             </div>
             <div className="md:col-span-2 h-full w-full space-y-5">
-
                 <SideContent />
             </div>
 

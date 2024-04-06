@@ -5,19 +5,22 @@ import { fetchData } from "../../../utils/fetchData"
 import useAxios from "../../../hooks/useAxios"
 import Loading from "../../loading/Loading"
 import FavouriteBlogCard from "./FavouriteBlogCard"
+import useAuthContext from "../../../hooks/useAuthContext"
+import { api } from "../../../api/api"
 
 
 
 const FavouriteBlogList = () => {
   const { axiosPrivate } = useAxios()
+  const {auth} = useAuthContext()
 
   //fetch favourite blog fn
   const fetchFavouriteBlog = async () => {
-    const response = await axiosPrivate.get('/blogs/favourites')
+    const response = await api.get('/blogs/favourites' , {headers : {Authorization : 'Bearer ' + auth.accessToken}})
     return response.data
 
   }
-  const { data, isLoading,isError,error } = useQueryData(['favourite'], fetchFavouriteBlog())
+  const { data, isLoading,isError,error } = useQueryData([ 'favourites'], fetchFavouriteBlog())
   console.log(data)
   if (isLoading) {
     return <Loading />

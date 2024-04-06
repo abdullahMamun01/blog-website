@@ -70,10 +70,8 @@ const Navbar = () => {
                         </li>
                         <li className="flex items-center">
 
-                            
                                 {user &&  <Avatar author={user} />}
 
-                            
 
                             <button className='' onClick={toggleAvatarDropdown}>
                                 <span className="text-white ml-2">

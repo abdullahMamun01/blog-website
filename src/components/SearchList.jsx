@@ -5,8 +5,6 @@ const SearchList = ({ id, title, thumbnail, content }) => {
     return (
         <div className="my-4 divide-y-2 divide-slate-500/30 max-h-[440px] overflow-y-scroll overscroll-contain ">
             <Link to={`/blog/${id}`}>
-
-
                 {/* search list */}
                 <div className="flex gap-6 py-2">
                     <img className="h-28 object-contain" src={`${import.meta.env.VITE_SERVER_BASE_URL}/uploads/blog/${thumbnail}`} alt="" />

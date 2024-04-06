@@ -11,9 +11,11 @@ const useAxios = () => {
     const requestIntercept = axiosPrivate.interceptors.request.use(
       (config) => {
         const accessToken = auth?.accessToken;
-        console.log({accessToken})
+       
         if (accessToken) {
           config.headers.Authorization = `Bearer ${accessToken}`;
+
+      
         }
 
         return config;
@@ -25,19 +27,19 @@ const useAxios = () => {
     const responseIntercept = axiosPrivate.interceptors.response.use(
       (response) => response,
       async (error) => {
-        const originalRequest = error.config;
-   
-        if (error.response.status === 500 && !originalRequest._retry) {
-          originalRequest._retry = true;
     
+        const originalRequest = error.config;
+        if (error.response.status === 401 && !originalRequest._retry) {
+          originalRequest._retry = true;
+
           try {
             const refreshToken = auth?.refreshToken;
             const response = await axiosPrivate.post('/auth/refresh-token', { refreshToken });
             const { accessToken } = response.data;
-            
+            console.log(response.data)
             setAuth({...auth , accessToken })
             // Retry the original request with the new token
-            originalRequest.headers.Authorization = `Bearer ${token}`;
+            originalRequest.headers.Authorization = `Bearer ${accessToken}`;
             return axiosPrivate(originalRequest);
           } catch (error) {
             // Handle refresh token error or redirect to login
@@ -48,12 +50,12 @@ const useAxios = () => {
         return Promise.reject(error);
       }
     );
+
     return () => {
       axiosPrivate.interceptors.response.eject(responseIntercept);
       axiosPrivate.interceptors.request.eject(requestIntercept);
     }
-  }, [ auth.accessToken]);
-
+  }, [ auth.accessToken ]);
   return {axiosPrivate};
 };
 
